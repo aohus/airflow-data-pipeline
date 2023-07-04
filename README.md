@@ -1,20 +1,35 @@
 # programmers-study-pipeline
 
-programmers 스터디(실리콘밸리에서 날아온 데이터 엔지니어링 스타터 키트 with Python)에서 공부한 내용을 정리한 repository 입니다.
+programmers 스터디(실리콘밸리에서 날아온 데이터 엔지니어링 스타터 키트 with Python)에서 실습한 내용을 정리한 repository 입니다.
 
-1. 제공된 EC2 server에 airflow를 설치
-2. airflow를 통한 ETL process 구현
-   1. weather to redshift
-   - task1: get daily temperature info through open weather api
-   - task2: redshift table format에 맞춰 transform
-   - task3-1: save data to redshift (full refresh)
-   - task3-2: save data to redshift (incremental update)
-   2. mysql to redshift
-   - task1: clean up s3 bucket
-   - task2-1: mysql to s3 (full refresh)
-   - task2-2: mysql to s3 (daily incremental update)
-   - task3: s3 to redshift
-   3. namegendercsv to redshift
-   - task1: download csv file through download api
-   - task2: remove header
-   - task3: save data to redshift
+# Environments
+
+- AWS 이용
+  - worflow management platform : EC2 server에 airflow 설치
+  - datastore : S3, redshift, mysql
+
+### dags
+
+1.  weather to redshift
+
+- get daily temperature info from open weather api and save data to redshift
+- using xcom_pull
+- try two ways to save to redshift : full refresh / incremental update
+
+2.  mysql to redshift
+
+- mysql -> s3 -> redshift
+- try two ways to save to redshift : full refresh / clean up s3 bucket & daily incremental update
+
+3.  namegendercsv to redshift
+
+- download csv file through download api and save data to redshift
+- using xcom_pull
+
+### docs
+
+1. [SQL for dataengineer](docs/SQL_for_dataengineer.md)
+2. [transaction](docs/transaction.md)
+3. [airflow](docs/airflow.md)
+4. [Redshift](docs/Redshift.md)
+5. [full refresh & incremental update](docs/full_refresh_and_incremental_update.md)
