@@ -1,6 +1,7 @@
 # programmers-study-pipeline
 
-programmers 스터디(실리콘밸리에서 날아온 데이터 엔지니어링 스타터 키트 with Python)에서 실습한 내용을 정리한 repository 입니다.
+[실리콘밸리에서 날아온 데이터 엔지니어링 스타터 키트 with Python] 강의를 듣고 실습한 내용을 정리한 repository 입니다.
+모든 dags 폴더에는 같은 일을 하는 dag가 version1, 2로 나뉘어 작성되어있습니다. version2는 강의를 들은 후 작성된 코드로 xcom_pull, incremental update, transaction, plugins로 코드 분리와 같은 방법을 적용해 작성했습니다.
 
 ## Environments
 
@@ -13,18 +14,27 @@ programmers 스터디(실리콘밸리에서 날아온 데이터 엔지니어링 
 1.  weather to redshift
 
     - get daily temperature info from open weather api and save data to redshift
-    - using xcom_pull
-    - try two ways to save to redshift : full refresh / incremental update
+    - using xcom_pull(v2)
+    - try two ways to save to redshift
+      - full refresh
+      - incremental update(v2)
 
 2.  mysql to redshift
 
     - mysql -> s3 -> redshift
-    - try two ways to save to redshift : full refresh / clean up s3 bucket & daily incremental update
+    - try two ways to save to redshift
+      - full refresh
+      - clean up s3 bucket & daily incremental update
 
 3.  namegendercsv to redshift
 
     - download csv file through download api and save data to redshift
     - using xcom_pull
+
+4.  build summary
+
+    - Create and store a summary table to track the first and last channel for each user
+    - separate summary code into a module within the plugins
 
 # docs
 

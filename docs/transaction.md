@@ -1,21 +1,27 @@
+# Transaction
+
 여러 SQL이 하나의 동작처럼 되어야할 때, begin-end 문 사용한다. end가 나오기 전까지는 commit 이 안됨.
 
 - DELETE FROM table WHERE 가능, WHERE 없으면 전체 레코드 삭제
 - TRUNCATE 전체 레코드 삭제, 조건 불가능, 훨씬 빠름
 
-트랜잭션이란?
+**트랜잭션이란?**
 
 - Atomic하게 실행되어야 하는 SQL들을 묶어서 하나의 작업처럼 처리하는 방법
 - BEGIN과 END 혹은 BEGIN과 COMMIT 사이에 해당 SQL들을 사용
 - ROLLBACK
 
-트랜잭션 구현방법
+**트랜잭션 구현방법**
 
 - 두 가지 종류의 트랜잭션이 존재
+
   - 레코드 변경을 바로 반영하는지 여부. autocommit이라는 파라미터로 조절가능
+
 - autocommit=True
+
   - 기본적으로 모든 SQL statement가 바로 커밋됨
   - 이를 바꾸고 싶다면 BEGIN;END; 혹은 BEGIN;COMMIT을 사용 (혹은 ROLLBACK)
+
 - autocommit=False
 
   - 기본적으로 모든 SQL statement가 커밋되지 않음
