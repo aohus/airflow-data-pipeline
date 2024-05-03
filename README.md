@@ -1,10 +1,7 @@
-# programmers-study-pipeline
-
-[실리콘밸리에서 날아온 데이터 엔지니어링 스타터 키트 with Python] 강의를 듣고 실습한 내용을 정리한 repository 입니다.
-모든 dags 폴더에는 같은 일을 하는 dag가 version1, 2로 나뉘어 작성되어있습니다. version2는 강의를 들은 후 작성된 코드로 xcom_pull, incremental update, transaction, plugins로 코드 분리와 같은 방법을 적용해 작성했습니다.
+# data pipeline with Apache Airflow 
+모든 dags 폴더에는 같은 일을 하는 dag가 version1, 2로 나뉘어 작성되어있습니다. version2는 xcom_pull, incremental update, transaction, plugins로 airflow 기능과 코드 책임 분리를 적용한 내용입니다.
 
 ## Environments
-
 - AWS 이용
   - worflow management platform : EC2 server에 airflow 설치
   - datastore : S3, redshift, mysql
